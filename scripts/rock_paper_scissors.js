@@ -70,11 +70,13 @@ function updatePoints(points, div, body){
     div.textContent = 'You have points: ' + points;
     if (points === 5) {
         div.textContent = 'You win!';
+	div.setAttribute('style', 'color: green; font-size: 64px;')
 	points = 0;
     }
     else {
         if (points === -5) {
             div.textContent = 'You lose';
+	    div.setAttribute('style', 'color: red; font-size: 64px;')	
 	    points = 0;
         }
     }
@@ -83,23 +85,28 @@ function updatePoints(points, div, body){
 }
 
 const body = document.querySelector('body');
+body.setAttribute('style', 'background: white; display: flex; justify-content: center; align-items: center; flex-direction: column;');
 
 const button1 = document.createElement('button');
 button1.classList.add('rock');
 button1.textContent = 'Rock';
+button1.setAttribute('style', 'font-size: 32px; font-weight: bold; margin: 12px;')
 body.appendChild(button1);
 
 const button2 = document.createElement('button');
 button2.classList.add('paper');
 button2.textContent = 'Paper';
+button2.setAttribute('style', 'font-size: 32px; font-weight: bold; margin: 12px;')
 body.appendChild(button2);
 
 const button3 = document.createElement('button');
 button3.classList.add('scissors');
 button3.textContent = 'Scissors';
+button3.setAttribute('style', 'font-size: 32px; font-weight: bold; margin: 12px;')
 body.appendChild(button3);
 
 const div = document.createElement('div');
+div.setAttribute('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 32px;')
 
 let points = 0;
 const btn = document.querySelector('.rock');
