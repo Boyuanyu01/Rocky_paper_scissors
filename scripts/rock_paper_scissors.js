@@ -70,13 +70,16 @@ function updatePoints(points, div, body){
     div.textContent = 'You have points: ' + points;
     if (points === 5) {
         div.textContent = 'You win!';
+	points = 0;
     }
     else {
         if (points === -5) {
-            div.textContent = 'You lose'
+            div.textContent = 'You lose';
+	    points = 0;
         }
     }
     body.appendChild(div);
+    return points;
 }
 
 const body = document.querySelector('body');
@@ -102,18 +105,18 @@ let points = 0;
 const btn = document.querySelector('.rock');
 btn.addEventListener('click', () => {
     points += playRound('rock', computerPlay());
-    updatePoints(points, div, body);
+    points = updatePoints(points, div, body);
 });
 
 const btn1 = document.querySelector('.paper');
 btn1.addEventListener('click', () => {
     points += playRound('paper', computerPlay());
-    updatePoints(points, div, body);
+    points = updatePoints(points, div, body);
 });
 
 const btn2 = document.querySelector('.scissors');
 btn2.addEventListener('click', () => {
     points += playRound('scissors', computerPlay());
-    updatePoints(points, div, body);
+    points = updatePoints(points, div, body);
 });
 
